@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.techacademy.entity.User;
 import com.techacademy.repository.UserRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class UserService {
     @Autowired
@@ -21,5 +23,11 @@ public class UserService {
     public List<User> getUserList() {
         // リポジトリのfindAllメソッドを呼び出す
         return userRepository.findAll();
+    }
+
+    //Userの登録を行う
+    @Transactional
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 }
