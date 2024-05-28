@@ -13,9 +13,9 @@ import jakarta.transaction.Transactional;
 
 @Service
 public class UserService {
-    @Autowired
     private final UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository repository) {
         this.userRepository = repository;
     }
